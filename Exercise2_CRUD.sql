@@ -57,7 +57,7 @@ from HumanResources.Employee
 group by JobTitle
 
 --- number 12
-select Year(OrderDate) as Year, count(Year(OrderDate)) as TotalOrder
+select Year(OrderDate) as Year, count(SalesOrderID) as TotalOrder
 from Sales.SalesOrderHeader
 group by Year(OrderDate)
 
@@ -66,7 +66,7 @@ group by Year(OrderDate)
 select CONCAT(c.firstName, ' ', c.middleName, ' ', c.lastName) AS CustomerName, SUM(a.TotalDue) as SumTotalDue
 from Sales.SalesOrderHeader a
 Left Join sales.customer b on a.CustomerID = b.CustomerID
-Left join Person.Person c on a.CustomerID = c.BusinessEntityID
+Left join Person.Person c on b.PersonID = c.BusinessEntityID
 group by CONCAT(c.firstName, ' ', c.middleName, ' ', c.lastName)
 
 select*from Sales.SalesPerson
