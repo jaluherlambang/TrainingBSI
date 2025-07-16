@@ -26,11 +26,11 @@ GO
 -- Tabel TrainingSession
 CREATE TABLE TrainingSession (
     ID INT IDENTITY(1,1) PRIMARY KEY,
-    InstructorID INT INT,
+    InstructorID INT,
     CourseID INT NOT NULL,
     SessionDate DATE NOT NULL,
     Location VARCHAR(50) NULL,
-    FOREIGN KEY (InstructorID) REFERENCES Instructor(ID),
+   --- FOREIGN KEY (InstructorID) REFERENCES Instructor(ID),
     FOREIGN KEY (CourseID) REFERENCES TrainingCourse(ID)
 );
 GO
@@ -45,6 +45,13 @@ CREATE TABLE Instructor (
 );
 GO
 
+---- add foreign key to trainingsession
+Alter Table TrainingSession
+    Add FOREIGN KEY (InstructorID) REFERENCES Instructor(ID);
+
+GO
+
+    
 -- Tabel ParticipationRecord (table many-to-many Employee & TrainingSession)
 CREATE TABLE ParticipationRecord (
     SessionID INT NOT NULL,
