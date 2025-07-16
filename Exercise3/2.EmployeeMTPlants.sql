@@ -26,18 +26,20 @@ GO
 -- Tabel TrainingSession
 CREATE TABLE TrainingSession (
     ID INT IDENTITY(1,1) PRIMARY KEY,
+    InstructorID INT INT,
     CourseID INT NOT NULL,
     SessionDate DATE NOT NULL,
     Location VARCHAR(50) NULL,
+    FOREIGN KEY (InstructorID) REFERENCES Instructor(ID),
     FOREIGN KEY (CourseID) REFERENCES TrainingCourse(ID)
 );
 GO
 
 -- Tabel Instructor (table many-to-many Employee & TrainingSession)
 CREATE TABLE Instructor (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
     SessionID INT NOT NULL,
     EmployeeID INT NOT NULL,
-    PRIMARY KEY (SessionID, EmployeeID),
     FOREIGN KEY (SessionID) REFERENCES TrainingSession(ID),
     FOREIGN KEY (EmployeeID) REFERENCES Employee(ID)
 );
