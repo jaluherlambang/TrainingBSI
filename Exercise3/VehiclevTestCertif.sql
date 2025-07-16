@@ -4,14 +4,14 @@ USE VehiclevTestCertif;
 
 -- Tabel CarModel
 CREATE TABLE CarModel (
-    ModelID INT AUTO_INCREMENT PRIMARY KEY,
+    ModelID INT IDENTITY(1,1) PRIMARY KEY,
     Name VARCHAR(50) NOT NULL,
     ReleaseYear smallint NOT NULL
 );
 
 -- Tabel PrototypeVehicle
 CREATE TABLE PrototypeVehicle (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
+    ID INT IDENTITY(1,1) PRIMARY KEY,
     CarModelID INT NOT NULL,
     SerialNumber VARCHAR(50) NOT NULL,
     ManufactureDate DATE NOT NULL,
@@ -20,21 +20,21 @@ CREATE TABLE PrototypeVehicle (
 
 -- Tabel TestEngineer
 CREATE TABLE TestEngineer (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
+    ID INT IDENTITY(1,1) PRIMARY KEY,
     Name VARCHAR(50) NOT NULL,
     Expertise VARCHAR(50)
 );
 
 -- Tabel TestLocation
 CREATE TABLE TestLocation (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
+    ID INT IDENTITY(1,1) PRIMARY KEY,
     Name VARCHAR(50) NOT NULL,
     Address VARCHAR(150)
 );
 
 -- Tabel VehicleTest
 CREATE TABLE VehicleTest (
-    TestID INT AUTO_INCREMENT PRIMARY KEY,
+    TestID INT IDENTITY(1,1) PRIMARY KEY,
     PrototypeID INT NOT NULL,
     EngineerID INT NOT NULL,
     LocationID INT NOT NULL,
