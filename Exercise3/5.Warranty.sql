@@ -29,7 +29,7 @@ CREATE TABLE WarrantyRegistration (
     WarrantyID INT IDENTITY(1,1) PRIMARY KEY,
     VIN VARCHAR(30) NOT NULL UNIQUE,
     PurchaseDate DATE NOT NULL,
-    WarrantyPeriodMonths INT NOT NULL CHECK (WarrantyPeriodMonths > 0),
+    WarrantyPeriodMonths INT,
     CONSTRAINT FK_Warranty_Car FOREIGN KEY (VIN) REFERENCES Car(VIN)
 );
 GO
