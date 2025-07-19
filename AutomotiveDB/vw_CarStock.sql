@@ -1,4 +1,4 @@
-ALTER VIEW vw_CarStock AS
+CREATE VIEW vw_CarStock AS
 SELECT 
     dc.DealerCarID,
     car.CarID,
@@ -7,8 +7,6 @@ SELECT
     car.Color,
     d.Name AS DealerName,
     dc.Price,
-    dc.DiscountPercent,
-    dc.FeePercent,
     dc.Stock AS StockDealer,              -- stok in dealer
     car.Stock AS StockMaster       -- stok in master Car
 FROM DealerCar dc
