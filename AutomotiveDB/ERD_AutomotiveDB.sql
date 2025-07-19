@@ -1,7 +1,7 @@
-CREATE DATABASE AutomotiveDB2;
+CREATE DATABASE AutomotiveDB;
 GO
 
-USE AutomotiveDB2;
+USE AutomotiveDB;
 GO
 
  -----customer table
